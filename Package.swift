@@ -4,14 +4,14 @@ import PackageDescription
 
 let package = Package(
     name: "SpotIAP",
+	platforms: [
+		.iOS(8.0), .macOS(10.11),
+	],
     products: [
         .library(
             name: "SpotIAP",
             targets: ["SpotIAP"]),
     ],
-	platforms: [
-		.iOS(8.0), .macOS(10.11),
-	],
     dependencies: [
 		.package(url: "https://github.com/shawnclovie/Spot", .branch("master")),
 		.package(url: "https://github.com/shawnclovie/SpotSQLite", .branch("master")),
