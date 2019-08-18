@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "SpotIAP",
 	platforms: [
-		.iOS(8.0), .macOS(10.11),
+		.iOS("8.0"), .macOS("10.11"),
 	],
     products: [
         .library(
