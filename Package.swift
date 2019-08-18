@@ -13,8 +13,8 @@ let package = Package(
             targets: ["SpotIAP"]),
     ],
     dependencies: [
-		.package(url: "https://github.com/shawnclovie/Spot", .branch("master")),
-		.package(url: "https://github.com/shawnclovie/SpotSQLite", .branch("master")),
+		.package(url: "https://github.com/shawnclovie/Spot", from: "1.0.0"),
+		.package(url: "https://github.com/shawnclovie/SpotSQLite", from: "1.0.0"),
     ],
     targets: [
         .target(
