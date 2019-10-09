@@ -8,6 +8,9 @@
 
 import StoreKit
 import Spot
+#if canImport(UIKit)
+import UIKit
+#endif
 
 /// Native product loader of App Store
 @objc public final class AppStoreProductRequest: NSObject, SKProductsRequestDelegate {
@@ -44,8 +47,8 @@ import Spot
 		let request = SKProductsRequest(productIdentifiers: requestingIDs)
 		request.delegate = self
 		request.start()
-		#if os(iOS)
-			UIApplication.shared.spot.set(networkActivityIndicatorVisible: true)
+		#if canImport(UIKit)
+		UIApplication.shared.spot.set(networkActivityIndicatorVisible: true)
 		#endif
 	}
 	
@@ -66,8 +69,8 @@ import Spot
 	}
 	
 	private func didLoad(_ result: AttributedResult<Response>) {
-		#if os(iOS)
-			UIApplication.shared.spot.set(networkActivityIndicatorVisible: false)
+		#if canImport(UIKit)
+		UIApplication.shared.spot.set(networkActivityIndicatorVisible: false)
 		#endif
 		AppStoreProductRequest.default.remove(self)
 		completionHandler(result)

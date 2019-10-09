@@ -198,7 +198,7 @@ extension AppStoreProvider: IAPProvider {
 }
 
 extension AppStoreProvider: SKPaymentTransactionObserver {
-	#if os(iOS)
+	#if os(iOS) && !targetEnvironment(macCatalyst)
 	public func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
 		AppStoreArrivedPayment.didArriveEvent.dispatch(.init(payment: payment, product: product))
 		return false
